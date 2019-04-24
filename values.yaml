@@ -1,0 +1,34 @@
+#This setting enables dev mode to include a local MongoDB install
+devMode:
+  enabled: true
+
+#This setting accepts the EULA for the product
+engine:
+  acceptEULA: "yes"
+#These settings are to accomodate if RBAC is enabled 
+mira:
+ rbac:
+   create: true
+ serviceAccount:
+   create: true
+
+elastic-infra:
+ traefik:
+   rbac:
+     enabled: true
+ nginx-ingress:
+   rbac:
+      create: true
+#These setting specifies the storage for the engine
+engine:
+  persistence:
+    enabled: true
+    accessMode: ReadWriteMany
+    existingClaim: my-persistent-vol
+
+#These setting specifies the storage for the resource-library  
+resource-library:
+  persistence:
+    enabled: true
+    accessMode: ReadWriteMany
+    existingClaim: my-persistent-vol
